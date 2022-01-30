@@ -6,3 +6,6 @@ This reference application sets up a NGINX workload to access the private key in
 using the Public-Key Cryptography Standard (PKCS) #11 interface and OpenSSL.
 
 ITP/SGX/01: Deploy Verification Controller on AWS and Veirfy  Integration With DEK
+DEployment of keyvautlt server on cloud 
+Deploying and verifying NGINX on DEK 
+Verifying the applications inside the encalve 
