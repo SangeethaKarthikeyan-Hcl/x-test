@@ -1,3 +1,37 @@
+```text
+SPDX-License-Identifier: Apache-2.0
+Copyright © 2021 Intel Corporation
+```
+
+- [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services]
+
+- [ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP]
+
+- [ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node]
+
+- [ITP/DEK/SEC/KMRA/04: Verify onboard of 3 instances of KMRA NGINX application having their own secure enclave on DEK node]
+
+- [ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS, KMRA-C and Platform attestation services in single AWS instance]
+
+- [ITP/DEK/SEC/KMRA/06: Verify simultaneous bring up of 10 KMRA NGINX applications having their own secure enclave on DEK node]
+
+- [ITP/DEK/SEC/KMRA/07: Verify onboard of KMRA NGINX application in multinode DEK referring same PCCS and KMRA cloud services]
+
+- [ITP/DEK/SEC/KMRA/08: Verify the cryptographic performance of SKM against non KMRA SGX enclave]
+
+- [ITP/DEK/SEC/KMRA/09: Verify onboard of two NGINX application with and without secure enclave on DEK node]
+
+- [ITP/DEK/SEC/KMRA/10: Verify deployment of KMRA NGINX application post recovery of AWS instance from forced reboot]
+
+- [ITP/DEK/SEC/KMRA/11: Verify deployment of NGINX application with KMRA control plane services in AWS instance not reachable]
+
+- [ITP/DEK/SEC/KMRA/12: Verify the enclave memory exhaustion handling with multiple instances of NGINX application]
+                                                                                                       
+
+
+
+
+
 ### Test Summary
 
 Key Management Reference Application (KMRA) is a proof-of-concept software created to demonstrate the integration of Intel® Software Guard Extensions (Intel® SGX) asymmetric key
@@ -20,56 +54,114 @@ Smart Edge node & Verification controller(AWS instance)
 - An Internet connection
 - Ubuntu 20.04
 
-ITP/SGX/KMRA/01: Deploy Verification Controller on AWS and verify the pods 
+## ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services
 
-1. The Key serve running on AWS cloud that the edge node’s enclave is running with Intel SGX protections on a trusted
-Intel SGX-enabled platform, with a valid TCB. 
+### Test Summary
 
-2. The Intel SGX quote of the edge node is validated by the quote verification library (QVL) on the AWS cloud.
-If quote is correct, the hash of enode_pub is verified with sgx_quote_t, enode_pub is imported into the HSM as a session object,
-and a symmetric wrapping key (aes_swk) is generated as a session object. 
+#### Prerequesites
 
-3. AppHSM creates wrapped_priv_key by wrapping RSA private key (rsa_priv) with SWK (aes_swk) using
-CKM_AES_KEY_WRAP_PAD. AppHSM also creates wrapped_swk by wrapping SWK (aes_swk) with the imported edge node public key (enode_pub) using RSA OAEP.
-
-4. As a part of successfull the verification, Wrapped keys (wrapped_priv_key and wrapped_swk) are released by the SoftHSM key server and sent back to
-the edge node for provisioning into the enclave.
+#### Test steps
 
 
+## ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP
 
-ITP/SGX/KMRA/02: Deployment of KMRA and verify Integration with DEK
+### Test Summary
 
-1.KMRA Crypto Engine is running on Smart Edge Node with an Intel SGX-enabled platform.
- 
-2. The Edge node sends a request to AWS cloud containing an Intel® SGX quote, a public key from Crypto API Toolkit for Intel SGX,
-and a unique ID to identify the key pair to extract. 
+#### Prerequesites
 
-3. This requests is constructed using json-c and requests are sent using libcurl.
+#### Test steps
 
+## ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node.
 
-4. For constructing a request an public/private key pair (enode_pub/enode__priv) is generated as a session object on the edge node. An
-attestation quote sgx_quote_t is generated using Crypto API Toolkit for Intel SGX and attests the hash of ss_pub and the enclave.
+### Test Summary
 
-5. Edge node sends REST API request containing a (enode_pub) to AppHSM to trigger the Intel SGX quote verification library.
+#### Prerequesites
 
-
-ITP/SGX/KMRA/03: Deploying and verifying NGINX pods  on DEK 
-
-1. once NGNIX pods are  created need to verify the web application
-
-2. For NGINX Application to access the secured private key provisioned by the key server,
-a libp11 engine is configured with OpenSSL. The libp11 engine is an interface for NGINX Application to access keys secured by Crypto API Toolkit for Intel SGX.
+#### Test steps
 
 
+## ITP/DEK/SEC/KMRA/04: Verify onboard of 3 instances of KMRA NGINX application having their own secure enclave on DEK node
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+## ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS, KMRA-C and Platform attestation services in single AWS instance
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
 
 
-ITP/SGX/KMRA/04: Verifying the symmetric application keys for two ngnix  pods inside the encalve
+## ITP/DEK/SEC/KMRA/06: Verify simultaneous bring up of 10 KMRA NGINX applications having their own secure enclave on DEK node
 
-1. create two ngnix pods on DEK
-2. Verify if it is accessing the pods with the same or different keys 
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
 
 
-ITP/SGX/KMRA/05:
+## TP/DEK/SEC/KMRA/07: Verify onboard of KMRA NGINX application in multinode DEK referring same PCCS and KMRA cloud services
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+
+## ITP/DEK/SEC/KMRA/08: Verify the cryptographic performance of SKM against non KMRA SGX enclave
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+## ITP/DEK/SEC/KMRA/09: Verify onboard of two NGINX application with and without secure enclave on DEK node.
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+
+## ITP/DEK/SEC/KMRA/10: Verify deployment of KMRA NGINX application post recovery of AWS instance from forced reboot
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+
+## ITP/DEK/SEC/KMRA/11: Verify deployment of NGINX application with KMRA control plane services in AWS instance not reachable
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+
+## ITP/DEK/SEC/KMRA/12: Verify the enclave memory exhaustion handling with multiple instances of NGINX application\
+
+### Test Summary
+
+#### Prerequesites
+
+#### Test steps
+
+
+
+
+
 
 
 
