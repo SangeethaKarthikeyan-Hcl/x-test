@@ -118,6 +118,10 @@ Smart Edge node & Verification controller(AWS instance)
 
     - Set up the Intel PCCS (https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html#inpage-nav-2-1)
   ```
+ 
+3. refer following link for ESP-ISO ESP w/ Ubuntu OS image creation
+https://github.com/intel-innersource/applications.services.smart-edge-open.test-validation/blob/main/test_plans/se-o/esp/singlenode/ts01-esp-platform-setup-singlenode.md#itpseoespsingle0102-deploy-esp-on-host-machine-with-ubuntu-provision-target-machine-with-ubuntu-profile-using-usb-boot-method
+  
 #### Test steps  
 
 
@@ -127,6 +131,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+[Follow Suite Prerequisites](#prerequisites)
+
 #### Test steps
 
 ## ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node.
@@ -134,6 +140,9 @@ Smart Edge node & Verification controller(AWS instance)
 ### Test Summary
 
 #### Prerequesites
+
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 
 #### Test steps
 
@@ -144,6 +153,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 #### Test steps
 
 ## ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS KMRA and Platform attestation services in single AWS instance
@@ -151,6 +162,7 @@ Smart Edge node & Verification controller(AWS instance)
 ### Test Summary
 
 #### Prerequesites
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
 #### Test steps
 
@@ -161,6 +173,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 #### Test steps
 
 
@@ -169,6 +183,8 @@ Smart Edge node & Verification controller(AWS instance)
 ### Test Summary
 
 #### Prerequesites
+
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
 #### Test steps
 
@@ -179,6 +195,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 #### Test steps
 
 ## ITP/DEK/SEC/KMRA/09: Verify onboard of two NGINX application with and without secure enclave on DEK node.
@@ -186,6 +204,8 @@ Smart Edge node & Verification controller(AWS instance)
 ### Test Summary
 
 #### Prerequesites
+
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
 #### Test steps
 
@@ -196,6 +216,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 #### Test steps
 
 
@@ -205,6 +227,8 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Prerequesites
 
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
+
 #### Test steps
 
 
@@ -213,6 +237,8 @@ Smart Edge node & Verification controller(AWS instance)
 ### Test Summary
 
 #### Prerequesites
+
+Follow [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
 #### Test steps
 
