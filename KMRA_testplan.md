@@ -82,13 +82,40 @@ using the Public-Key Cryptography Standard (PKCS) #11 interface and OpenSSL.
 
 Smart Edge node & Verification controller(AWS instance) 
 
- Smart Edge Cluster Node
-- ICX Xeon processor with secure boot and TPM enabled 
+- Smart Edge Cluster Node
+- ICX Xeon processor with Flexible launch control(FLC) enabled(requirement for DCAP)
 - At least 64 GB RAM
 - At least 512 GB hard drive
-- Kernel Version> 5.13
+- Kernel Version> 5.11
 - An Internet connection
 - Ubuntu 20.04
+
+### Prerequisites
+
+1. Enable Intel SGX in BIOS (below steps according to https://wiki.ith.intel.com/display/ESSE/Enable+Intel+SGX+in+BIOS)
+
+  Perform all below steps from internal BIOS not from IDRAC
+
+    ```shell
+    - Verify memory settings in System Setup of the BIOS, keys to look out for:
+      - Memory Operating Mode : Optimizer Mode
+      - Node Interleaving : Disabled
+    - Check if Memory Encryption is enabled/disabled in System Security. Save and Reboot after selection keys:
+      - Memory Encryption : Single Key
+      - Note here that if you do not see the Disabled button selected when landing on this section, you first need to disable Memory Encryption and then save changes and reboot
+      - Only then, go ahead and choose Single Key here
+    - Enable SGX and Factory reset together. On selection, Save and Reboot:
+      - Intel(R) SGX : On
+      - SGX Factory Reset : On
+    ```
+
+2. Settting Up DCAP - only if there is no existing DCAP server (smartedge node):
+
+  ```
+    - Subscribe to the Intel PCS (https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html#inpage-nav-2-undefined)
+
+    - Set up the Intel PCCS (https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html#inpage-nav-2-1)
+  ```
 
 ## ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services
 
