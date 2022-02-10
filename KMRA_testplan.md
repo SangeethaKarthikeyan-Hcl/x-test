@@ -151,7 +151,7 @@ Smart Edge node & Verification controller(AWS instance)
 
 #### Test steps
 
-## ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS, KMRA-C and Platform attestation services in single AWS instance
+## ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS KMRA and Platform attestation services in single AWS instance
 
 ### Test Summary
 
