@@ -68,6 +68,8 @@ Copyright © 2021 Intel Corporation
   - [Test steps](#test-steps-11)
 
 
+## ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services
+
 ### Test Summary
 
 Key Management Reference Application (KMRA) is a proof-of-concept software created to demonstrate the integration of Intel® Software Guard Extensions (Intel® SGX) asymmetric key
@@ -116,14 +118,7 @@ Smart Edge node & Verification controller(AWS instance)
 
     - Set up the Intel PCCS (https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html#inpage-nav-2-1)
   ```
-
-## ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services
-
-### Test Summary
-
-#### Prerequesites
-
-#### Test steps
+#### Test steps  
 
 
 ## ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP
@@ -220,22 +215,6 @@ Smart Edge node & Verification controller(AWS instance)
 #### Prerequesites
 
 #### Test steps
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
