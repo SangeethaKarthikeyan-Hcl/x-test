@@ -3,34 +3,32 @@ SPDX-License-Identifier: Apache-2.0
 Copyright © 2021 Intel Corporation
 ```
 
+
 - [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
-- [ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP]
+- [ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP](#itpDEKSECKMRA02-Verify-SGX-and-KMRA-provisioning-on-DEK-with-ESP)
 
-- [ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node]
+- [ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node](#itpDEKSECKMRA03-Verify-onboard-of-single-instance-KMRA-NGINX-application-within-secure-enclave-on-DEK-node)
 
-- [ITP/DEK/SEC/KMRA/04: Verify onboard of 3 instances of KMRA NGINX application having their own secure enclave on DEK node]
+- [ITP/DEK/SEC/KMRA/04: Verify onboard of 3 instances of KMRA NGINX application having their own secure enclave on DEK node](#itpDEKSECKMRA04-Verify-onboard-of-3-instances-of-KMRA-NGINX-application-having-their-own-secure-enclave-on-DEK-node)
 
-- [ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS, KMRA-C and Platform attestation services in single AWS instance]
+- [ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS KMRA-C and Platform attestation services in single AWS instance](#itpDEKSECKMRA05-Verify-deployment-of-verification-controller-with-PCCS-KMRA-C-and-Platform-attestation-services-in-single- AWS instance)
 
-- [ITP/DEK/SEC/KMRA/06: Verify simultaneous bring up of 10 KMRA NGINX applications having their own secure enclave on DEK node]
+- [ITP/DEK/SEC/KMRA/06: Verify simultaneous bring up of 10 KMRA NGINX applications having their own secure enclave on DEK node](#itpDEKSECKMRA06-Verify-simultaneous-bring-up-of-10-KMRA-NGINX-applications-having-their-own-secure-enclave-on-DEK-node)
 
-- [ITP/DEK/SEC/KMRA/07: Verify onboard of KMRA NGINX application in multinode DEK referring same PCCS and KMRA cloud services]
+- [ITP/DEK/SEC/KMRA/07: Verify onboard of KMRA NGINX application in multinode DEK referring same PCCS and KMRA cloud services](#itpDEKSECKMRA07-Verify-onboard-of-KMRA-NGINX-application-in-multinode-DEK-referring-same-PCCS-and-KMRA-cloud-services)
 
-- [ITP/DEK/SEC/KMRA/08: Verify the cryptographic performance of SKM against non KMRA SGX enclave]
+- [ITP/DEK/SEC/KMRA/08: Verify the cryptographic performance of SKM against non KMRA SGX enclave](#itpDEKSECKMRA08-Verify-the-cryptographic-performance-of-SKM-against-non-KMRA-SGX-enclave)
 
-- [ITP/DEK/SEC/KMRA/09: Verify onboard of two NGINX application with and without secure enclave on DEK node]
+- [ITP/DEK/SEC/KMRA/09: Verify onboard of two NGINX application with and without secure enclave on DEK node](#itpDEKSECKMRA09-Verify-onboard-of-two-NGINX-application-with-and-without-secure-enclave-on-DEK-node)
 
-- [ITP/DEK/SEC/KMRA/10: Verify deployment of KMRA NGINX application post recovery of AWS instance from forced reboot]
+- [ITP/DEK/SEC/KMRA/10: Verify deployment of KMRA NGINX application post recovery of AWS instance from forced reboot](#itpDEKSECKMRA10-Verify-deployment-of-KMRA-NGINX-application-post-recovery-of-AWS-instance-from-forced-reboot)
 
-- [ITP/DEK/SEC/KMRA/11: Verify deployment of NGINX application with KMRA control plane services in AWS instance not reachable]
+- [ITP/DEK/SEC/KMRA/11: Verify deployment of NGINX application with KMRA control plane services in AWS instance not reachable](#itpDEKSECKMRA11-Verify-deployment-of-NGINX-application-with-KMRA-control-plane-services-in-AWS-instance-not-reachable)
 
-- [ITP/DEK/SEC/KMRA/12: Verify the enclave memory exhaustion handling with multiple instances of NGINX application]
+- [ITP/DEK/SEC/KMRA/12: Verify the enclave memory exhaustion handling with multiple instances of NGINX application](#itpDEKSECKMRA12-Verify-the-enclave-memory-exhaustion-handling-with-multiple-instances-of-NGINX-application)
                                                                                                        
-
-
-
-
+                                                                                                       
 
 ### Test Summary
 
