@@ -27,7 +27,7 @@ Copyright © 2021 Intel Corporation
   - [Test steps](#test-steps-3)  
 
 
-- [ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS KMRA and Platform attestation services in single AWS instance](#itpDEKSECKMRA05-Verify-deployment-of-verification-controller-with-PCCS-KMRA-and-Platform-attestation-services-in-single- AWS instance)
+- [ITP/DEK/SEC/KMRA/05: Verify deployment of verification controller with PCCS KMRA and Platform attestation services in single AWS instance](#itpDEKSECKMRA05-Verify-deployment-of-verification-controller-with-PCCS-KMRA-and-Platform-attestation-services-in-single-AWS-instance)
   - [Test Summary](#test-summary-4)
   - [Prerequisites](#prerequisites-4)
   - [Test steps](#test-steps-4)
