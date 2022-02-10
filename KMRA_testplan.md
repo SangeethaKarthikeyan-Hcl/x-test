@@ -3,7 +3,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright © 2021 Intel Corporation
 ```
 
-- [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services]
+- [ITP/DEK/SEC/KMRA/01: Verify deployment of verification controller on AWS for PCCS and KMRA control plane services](#itpDEKSECKMRA01-Verify-deployment-of-verification-controller-on-AWS-for-PCCS-and-KMRA-control-plane-services)
 
 - [ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP]
 
