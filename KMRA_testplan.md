@@ -191,7 +191,7 @@ User should disable the sgx and PA node as shown below
 ```shell
 # SGX requires kernel 5.11+, SGX enabled in BIOS and access to PCC service
 sgx_enabled: "{{ false if ansible_product_name == 'MOROCITY' else true }}"
-sgx_enabled: false
+sgx_enabled: true
 
 ## Install HWE Kernel for SGX
 install_hwe_kernel_enable: true
@@ -265,26 +265,34 @@ ubuntu@ip-10-0-0-159:~$
 
 9. Once deployment successful run `kubectl get pods -A` on AWS instance to ensure all pods are in running state
 
-  ```shell
-ubuntu@ip-10-0-0-159:~$ kubectl get pods -A
-NAMESPACE      NAME                                       READY   STATUS    RESTARTS   AGE
-cert-manager   cert-manager-cainjector-7db56c5fd6-knbzn   1/1     Running   0          4h32m
-cert-manager   cert-manager-f5c794b65-wl52s               1/1     Running   0          4h32m
-cert-manager   cert-manager-webhook-6c86d79f7c-gkhxc      1/1     Running   0          4h32m
-kube-system    calico-kube-controllers-6c85b56fcb-9dxpg   1/1     Running   0          4h32m
-kube-system    calico-node-fn9d4                          1/1     Running   0          4h32m
-kube-system    coredns-78fcd69978-fhzgh                   1/1     Running   0          4h33m
-kube-system    coredns-78fcd69978-hxrlz                   1/1     Running   0          4h33m
-kube-system    etcd-ip-10-0-0-159                         1/1     Running   3          4h33m
-kube-system    kube-apiserver-ip-10-0-0-159               1/1     Running   0          4h33m
-kube-system    kube-controller-manager-ip-10-0-0-159      1/1     Running   0          4h33m
-kube-system    kube-proxy-jskjv                           1/1     Running   0          4h33m
-kube-system    kube-scheduler-ip-10-0-0-159               1/1     Running   0          4h33m
-pccs           pccs-7dfb57dfc6-m4dmw                      1/1     Running   0          4h26m
+ ```shell
+ubuntu@ip-10-0-0-85:~$ kubectl get pods -A
+NAMESPACE      NAME                                       READY   STATUS       RESTARTS       AGE
+apphsm         apphsm-657845978b-wfxcb                    2/2     Running      2 (19h ago)    2d5h
+cert-manager   cert-manager-779bc6bf59-f6fmz              1/1     Running      2 (19h ago)    7d4h
+cert-manager   cert-manager-cainjector-55765d687b-2655k   1/1     Running      2 (19h ago)    7d4h
+cert-manager   cert-manager-webhook-85d85f46c7-cxlgn      1/1     Running      2 (19h ago)    7d4h
+isecl          aas-687c4cc568-rv7n7                       1/1     Running      2 (19h ago)    7d4h
+isecl          aasdb-74b748ccdd-4whmz                     1/1     Running      2 (19h ago)    7d4h
+isecl          cms-84d5bdf9db-m2hnt                       1/1     Running      2 (19h ago)    7d4h
+isecl          cms-init-nlr52                             0/1     Completed    0              7d4h
+isecl          hvs-6d6648f968-mm52b                       1/1     Running      2 (19h ago)    7d4h
+isecl          hvsdb-85c595564-9n8p4                      1/1     Running      2 (19h ago)    7d4h
+isecl          nats-0                                     1/1     Running      2 (19h ago)    7d4h
+isecl          nats-1                                     1/1     Running      2 (19h ago)    7d4h
+isecl          nats-init-bvkg7                            0/1     Init:Error   0              7d4h
+isecl          nats-init-gzb5s                            0/1     Completed    0              7d4h
+kube-system    calico-kube-controllers-85b5b5888d-tgdgf   1/1     Running      2 (19h ago)    7d4h
+kube-system    calico-node-czn5s                          1/1     Running      2 (19h ago)    7d4h
+kube-system    coredns-64897985d-8wbhd                    1/1     Running      2 (19h ago)    7d5h
+kube-system    coredns-64897985d-sqw9f                    1/1     Running      2 (19h ago)    7d5h
+kube-system    etcd-ip-10-0-0-85                          1/1     Running      14 (19h ago)   7d5h
+kube-system    kube-apiserver-ip-10-0-0-85                1/1     Running      14 (19h ago)   7d5h
+kube-system    kube-controller-manager-ip-10-0-0-85       1/1     Running      14 (19h ago)   7d5h
+kube-system    kube-proxy-h8977                           1/1     Running      2 (19h ago)    7d5h
+kube-system    kube-scheduler-ip-10-0-0-85                1/1     Running      14 (19h ago)   7d5h
+pccs           pccs-7567f6dd4b-5qbt7                      1/1     Running      2 (19h ago)    7d4h
 ```
-
-
-
 
 ## ITP/DEK/SEC/KMRA/02: Verify SGX and KMRA provisioning on DEK with ESP
 
