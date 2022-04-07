@@ -298,11 +298,145 @@ pccs           pccs-7567f6dd4b-5qbt7                      1/1     Running      2
 
 ### Test Summary
 
-#### Prerequesites
+Test walks through singlenode deployment procedure and asserts that
+- docker is installed and configured
+- proxy for client is configured
+- proxy for daemon is configured
+- Edge Service Provisioner repository is checked out
+- config.yml file is set up
 
-[Follow Suite Prerequisites](#prerequisites)
+### Prerequisites
 
-#### Test steps
+- Clean machine or VM with Ubuntu 20.04 with proxy configured
+- Should be executed as root user
+
+### Test Steps
+
+1. Get update on Ubuntu machnie `apt-get update`
+   
+2. Install certificates `apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release`
+
+3. Download package from ubuntu site `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg` and make changes in files `echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+
+4. Get update on Ubuntu machine `apt-get update` again
+
+5. Install docker on Ubuntu machine using command `apt-get -y install docker-ce docker-ce-cli containerd.io`
+
+6. Prepare docker compose to enable using multi-container applications: 
+   `curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose`
+
+7. Add environment variables `HOST_IP=$(ip route get 8.8.8.8 | awk '{print $7}')` and `LOCAL_NETWORK="192.168.122.0/24,10.102.227.128/25"`
+   
+8. Create docker folder for client on `home` catalog: `mkdir ~/.docker`
+   
+9. Configure proxy config file for client in `~/.docker/config.json` file:
+  ```
+  cat << EOF > ~/.docker/config.json
+  {
+   "proxies":
+   {
+    "default":
+    {
+      "httpProxy": "http://proxy-mu.intel.com:911",
+      "httpsProxy": "http://proxy-mu.intel.com:912",
+      "noProxy": "localhost,127.0.0.0/8,${HOST_IP},${LOCAL_NETWORK}"
+    }
+   }
+  }
+  EOF
+  ```
+10. Create docker folder for daemon proxy configuration: `mkdir -p /etc/systemd/system/docker.service.d`
+   
+11. Configure proxy configuration for docker daemon in `/etc/systemd/system/docker.service.d/http-proxy.conf` file: 
+  ```
+  cat << EOF > /etc/systemd/system/docker.service.d/http-proxy.conf
+  [Service]
+  Environment="HTTP_PROXY=http://proxy-mu.intel.com:911"
+  Environment="HTTPS_PROXY=http://proxy-mu.intel.com:912"
+  Environment="NO_PROXY=localhost,127.0.0.1,${HOST_IP},${LOCAL_NETWORK}"
+  EOF
+  ```
+
+12. Install git on machine using `apt install git`
+
+13. Add to your machine environment variables as below: 
+    `GH_USER="github_user_name"`
+    `GH_TOKEN="github_token"`
+    `REGISTRY_MIRROR=http://example.local:5000`
+  
+**NOTE**:
+To generate token on `https://github.com/` go to Settings -> Developer settings -> Personal access tokens.
+Don't forget to authorize this token to access intel-collab, intel-innersource and intel-sandbox.
+
+14. Configure and add docker registry mirror using `mkdir -p /etc/docker` and then add 
+    ```
+    cat << EOF > /etc/docker/daemon.json
+    {
+      "registry-mirrors": ["http://example.local:5000"]
+    }
+    EOF
+    ```
+
+15. Reload docker settings `systemctl daemon-reload`
+   
+16. Restart docker `systemctl restart docker`
+    
+17. Clone Developer Experience Kits repo on machine `git clone https://${GH_TOKEN}@github.com/intel-innersource/applications.services.smart-edge-open.developer-experience-kits-open.git --branch github_branch_name ./dek`
+
+18. Entered to pulled folder `cd dek`
+    
+19. Create config file using `./dek_provision.py --init-config > provision.yml` and modify fields 
+    ```
+    github:
+      user: 'github_user'
+      token: 'gihtub_token'
+    ...
+    registry_mirrors: [registry_mirror_address]
+    ...
+    ntp_server: 'ntp_server'
+    ...
+        # Secure boot and trusted media platform options.
+    bios:
+      secure_boot: true
+      tpm: true
+    bmc:
+     address: 10.190.211.59
+     user: root
+     password: root@123  
+    ...
+    group_vars:
+      groups:
+        all:
+          sgx_enabled: true
+          sgx_pccs_ip: "Aws_controller_ip"
+          sgx_pccs_port: "32666"
+          sgx_use_secure_cert: false
+          pccs_user_token: "smartedgesgx"
+          pccs_api_key: "xxxxxxxxxxxx"
+          pccs_user_password: "smartedgesgx"
+          pccs_admin_password: "smartedgesgx"
+          platform_attestation_node: true
+          isecl_control_plane_ip: "AWS_Controller_Ip"
+          isecl_cms_tls_hash: "xxxxxxxxxxxxxxxxxxxxxx"
+        proxy_env:
+          all_proxy: "socks5://proxy-iind.intel.com:1080"
+          ftp_proxy: http://proxy-mu.intel.com:911
+          http_proxy: http://proxy-mu.intel.com:911
+          https_proxy: http://proxy-mu.intel.com:912
+          no_proxy: "localhost,127.0.0.1,10.244.0.0/24,10.96.0.0/12,192.168.0.1/24,10.190.212.0/23,10.243.22.0/23,10.237.213.0/24,10.190.204.134"      
+        controller_group:
+        edgenode_group:      
+    ```
+    
+20. Run ESP script using command `./dek_provision.py --config provision.yml`
+
+21. Run server using command `./dek_provision.py --config provision.yml --run-esp-for-usb-boot`
+
+22. On provisioned machine mount UOS image. Log in to machine using BMC and then open console. Mount `efi` image using `Map Removable Disk` and after aproving that change `Boot Option` from `Normal Boot` to `Virtual Floppy`. Reboot machine. 
+
+23.  After reboot wait until Smart Edge Open deployment status has changed from `in progress` to `deployed` (you can also login with default credentials and check if file `/opt/seo/.deployed` exists). Ansible deployment should ended with pass status - in file `/opt/seo/logs/` are ansible logs.
 
 ## ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node.
 
