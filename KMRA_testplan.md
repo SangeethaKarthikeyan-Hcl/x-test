@@ -438,6 +438,10 @@ Don't forget to authorize this token to access intel-collab, intel-innersource a
 
 23.  After reboot wait until Smart Edge Open deployment status has changed from `in progress` to `deployed` (you can also login with default credentials and check if file `/opt/seo/.deployed` exists). Ansible deployment should ended with pass status - in file `/opt/seo/logs/` are ansible logs.
 
+24. once  deployment successful , login with default credentials and run `kubectl get pods -A` on target host to ensure all pods are in running state
+
+  
+
 ## ITP/DEK/SEC/KMRA/03: Verify onboard of single instance KMRA NGINX application within secure enclave on DEK node.
 
 ### Test Summary
