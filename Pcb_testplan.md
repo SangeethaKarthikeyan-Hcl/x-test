@@ -12,7 +12,7 @@ The PCB demo sample application when deployed on OpenNESS creates an impactful e
 
 1. Verify PCB detection for deployment flavor minimal with on single node cluster (Controller & Edge Node in same host) using edge sofware
 
-2. Verify all pods/services applicable (openness/esi pods)
+2. Verify all pods/services applicable (openness/esi pods).
 
 ### Prerequisites
 
