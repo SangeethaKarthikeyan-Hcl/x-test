@@ -14,7 +14,7 @@ Clean AWS instance or VM with Ubuntu 20.04
 
     
  
-    Smartedge node:
+  Smartedge node:
 
 •	Processor: Intel® Xeon® processor.
 •	At least 32 GB RAM.
