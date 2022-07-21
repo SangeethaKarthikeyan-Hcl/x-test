@@ -1,26 +1,29 @@
-FDO:
+### Test Summary
+
 The FIDO protocols use standard public key cryptography techniques to provide stronger authentication. During registration with an online service, the user's client device creates a new key pair. It retains the private key and registers the public key with the online service.
 
 Provisioning with FDOs
+
 1.	The manufacturer creates an Ownership Voucher based on the credentials in the Device Initialize Protocol (DI). The Ownership Voucher is a digital document that provides the Owner with the credentials to take ownership of the Device. It is extended with each owner while the device is offline (i.e., boxed or shipped) between Manufacturer and Owner.
 2.	Create ownership proxy: Load Ownership Voucher to FDO owner service at procurement.
 
-Hardware Requirements
+
+### Hardware Requirements
+
+*Controller and Node System*
 Controller node:
 Clean AWS instance or VM with Ubuntu 20.04
 
-•	At least 16 GB RAM
-•	At least 2 CPU 
+- At least 16 GB RAM
+- At least 2 CPU 
 
-    
- 
-  Smartedge node:
+Smartedge node:
 
-•	Processor: Intel® Xeon® processor.
-•	At least 32 GB RAM.
-•	At least 512 GB hard drive.
-•	An Internet connection.
-•	Ubuntu 20.04.2 LTS Server
+- Processor: Intel® Xeon® processor.
+-	At least 32 GB RAM.
+-	At least 512 GB hard drive.
+-	An Internet connection.
+-	Ubuntu 20.04.2 LTS Server
 
 
 
